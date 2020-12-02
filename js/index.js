@@ -51,5 +51,21 @@ function pSelection(event) {
     p.textContent = `You selected: ${selection}`;
   }
   
-  let input = document.querySelector('input');
-  input.addEventListener('select', pSelection);
+let input = document.querySelector('input');
+input.addEventListener('select', pSelection);
+
+function listener(event) {
+    console.log(`event passing through ${event.currentTarget.nodeName} target --> ${event.taget.nodeName}`)
+}
+
+document.body.addEventListener("click", function(event) {
+    event.stopPropagation();
+});
+document.body.addEventListener("click", listener);
+
+Array.from(document.links).forEach(function(link) {
+    link.addEventListener("click", function(event) {
+        console.log(`disrupting the default behavior of ${event.target.textContent}`)
+    event.preventDefault();
+    });
+});
