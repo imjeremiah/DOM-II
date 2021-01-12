@@ -9,6 +9,8 @@ logo.addEventListener("mouseout", function(event) {
     event.target.style.color = "black";
 });
 
+gsap.to(".logo-header", {duration: 2, x: 300});
+
 let button = document.querySelector(".btn");
 
 button.addEventListener("click", function(event) {
